@@ -54,7 +54,8 @@ This should give
 See [TRAINING.md](TRAINING.md) for training and fine-tuning instructions.
 
 ## Acknowledgement
-This repository is forked from the [ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) repository.
+This repository is forked from the [ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) repository.\\
+
 [ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) is built using the [timm](https://github.com/rwightman/pytorch-image-models) library, [DeiT](https://github.com/facebookresearch/deit) and [BEiT](https://github.com/microsoft/unilm/tree/master/beit) repositories.
 
 ## License
