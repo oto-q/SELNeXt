@@ -27,7 +27,7 @@ Single-GPU
 ```
 python main.py --model selnext_base --eval true \
 --resume <PATH_TO_PRETRAINED_WEIGHTS> \
---input_size 224 --drop_path 0.2 \
+--input_size 224 \
 --data_path <PATH_IMAGENET-1K> \
 --model_ema true \
 --model_ema_eval true
@@ -37,10 +37,10 @@ Multi-GPU
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model selnext_base --eval true \
 --resume <PATH_TO_PRETRAINED_WEIGHTS> \
---input_size 224 --drop_path 0.2 \
+--input_size 224 \
 --data_path <PATH_IMAGENET-1K> \
 --model_ema true \
---ema_eval true
+--model_ema_eval true
 ```
 
 This should give 
@@ -48,25 +48,15 @@ This should give
 * Acc@1 85.820 Acc@5 97.868 loss 0.563
 ```
 
-- For evaluating other model variants, change `--model`, `--resume`, `--input_size` accordingly. You can get the url to pre-trained models from the tables above. 
-- Setting model-specific `--drop_path` is not strictly required in evaluation, as the `DropPath` module in timm behaves the same during evaluation; but it is required in training. See [TRAINING.md](TRAINING.md) or our paper for the values used for different models.
+- For evaluating other model variants, change `--model`, `--resume` accordingly.
 
 ## Training
 See [TRAINING.md](TRAINING.md) for training and fine-tuning instructions.
 
 ## Acknowledgement
-This repository is built using the [timm](https://github.com/rwightman/pytorch-image-models) library, [DeiT](https://github.com/facebookresearch/deit) and [BEiT](https://github.com/microsoft/unilm/tree/master/beit) repositories.
+This repository is forked from the [ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) repository.
+[ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) is built using the [timm](https://github.com/rwightman/pytorch-image-models) library, [DeiT](https://github.com/facebookresearch/deit) and [BEiT](https://github.com/microsoft/unilm/tree/master/beit) repositories.
 
 ## License
 This project is released under the MIT license. Please see the [LICENSE](LICENSE) file for more information.
 
-## Citation
-If you find this repository helpful, please consider citing:
-```
-@Article{liu2022convnet,
-  author  = {Zhuang Liu and Hanzi Mao and Chao-Yuan Wu and Christoph Feichtenhofer and Trevor Darrell and Saining Xie},
-  title   = {A ConvNet for the 2020s},
-  journal = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year    = {2022},
-}
-```
