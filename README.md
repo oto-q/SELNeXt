@@ -54,7 +54,7 @@ This should give
 See [TRAINING.md](TRAINING.md) for training and fine-tuning instructions.
 
 ## Acknowledgement
-This repository is forked from the [ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) repository.\\
+This repository is modified from the [ConvNeXt](https://github.com/facebookresearch/ConvNeXt.git) repository.\\
 
 ## License
 This project is released under the MIT license. Please see the [LICENSE](LICENSE) file for more information.
