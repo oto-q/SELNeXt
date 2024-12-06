@@ -18,7 +18,8 @@ from pathlib import Path
 
 import torch
 import torch.distributed as dist
-from torch._six import inf
+from torch._six import inf  #For cuda version 11.3
+#from torch import inf     #In case ModuleNotFoundError: No module named 'torch._six'
 
 from tensorboardX import SummaryWriter
 
