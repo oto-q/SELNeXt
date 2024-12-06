@@ -25,7 +25,7 @@ Please check [INSTALL.md](INSTALL.md) for installation instructions.
 
 Single-GPU
 ```
-python main.py --model selnext_base --eval true \
+python main.py --model [model name] --eval true \
 --resume <PATH_TO_PRETRAINED_WEIGHTS> \
 --input_size 224 \
 --data_path <PATH_IMAGENET-1K> \
@@ -35,7 +35,7 @@ python main.py --model selnext_base --eval true \
 Multi-GPU
 ```
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model selnext_base --eval true \
+--model [modelname] --eval true \
 --resume <PATH_TO_PRETRAINED_WEIGHTS> \
 --input_size 224 \
 --data_path <PATH_IMAGENET-1K> \
