@@ -30,6 +30,7 @@ from engine import train_one_epoch, evaluate
 from utils import NativeScalerWithGradNormCount as NativeScaler
 import utils
 import models.convnext
+import models.selnext
 
 def str2bool(v):
     """
