@@ -2,7 +2,7 @@
 
 ## Catalog
 - [x] ImageNet-1K Training Code  
-- [x] Fine-tune on [CIFAR-100, Oxford 102 flowers, Stanford cars, FGVC-Aircraft] with Weights & Biases logging 
+- [x] Fine-tune on [CIFAR-100, Oxford 102 flowers, Stanford cars, FGVC-Aircraft]
 
 
 
