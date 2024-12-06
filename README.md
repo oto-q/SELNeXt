@@ -45,7 +45,8 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 
 This should give 
 ```
-python main.py --model selnext_base --eval true --resume ./selnext_base_1k_224_ema.pth --input_size 224 --data_path /imagenet
+python main.py --model selnext_base --eval true --resume ./selnext_base_1k_ema.pth --input_size 224 --data_path /imagenet
+
 * Acc@1 84.230 Acc@5 96.830 loss 0.670
 ```
 
