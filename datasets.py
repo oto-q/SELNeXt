@@ -30,6 +30,53 @@ def build_dataset(is_train, args):
     if args.data_set == 'CIFAR':
         dataset = datasets.CIFAR100(args.data_path, train=is_train, transform=transform, download=True)
         nb_classes = 100
+    elif args.data_set == 'FLOWER':
+        if is_train :
+            mess='train'
+            trains=torchvision.datasets.Flowers102(
+                    args.data_path,
+                    download=True,
+                    split=mess,
+                    transform = transform,
+                )
+            mess='val'
+            vals = torchvision.datasets.Flowers102(
+                    args.data_path,
+                    download=True,
+                    split=mess,
+                    transform = transform,
+ 
+                )
+            dataset = ConcatDataset([
+                            trains,
+                            vals,
+                        ])
+
+        else :
+            mess='test'
+            dataset = torchvision.datasets.Flowers102(
+                      args.data_path,
+                      split='test',
+                      download=True,
+                      transform= transform,
+                      )
+        nb_classes = 102
+    elif args.data_set == 'CARS' :
+        if is_train :
+            mess = 'train'
+            dataset = datasets.StanfordCars(args.data_path, split=mess, transform=transform, download=False)
+        else :
+            mess = 'test'
+            dataset = datasets.StanfordCars(args.data_path, split=mess, transform=transform, download=False)        
+        nb_classes = 196
+    elif args.data_set == 'AIR':
+        if is_train :
+            mess = 'trainval'
+            dataset = datasets.FGVCAircraft(args.data_path, split=mess, transform=transform, download=True)
+        else :
+            mess = 'test'
+            dataset = datasets.FGVCAircraft(args.data_path, split=mess, transform=transform, download=True)        
+        nb_classes = 100  
     elif args.data_set == 'IMNET':
         print("reading from datapath", args.data_path)
         root = os.path.join(args.data_path, 'train' if is_train else 'val')
