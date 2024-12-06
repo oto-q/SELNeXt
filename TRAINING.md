@@ -14,7 +14,7 @@ We will give example commands for both multi-node and single-machine training be
 ConvNeXt-T training on ImageNet-1K with 4 8-GPU nodes:
 ```
 python run_with_submitit.py --nodes 4 --ngpus 8 \
---model convnext_tiny --drop_path 0.1 \
+--model selnext_tiny --drop_path 0.1 \
 --batch_size 128 --lr 4e-3 --update_freq 1 \
 --model_ema true --model_ema_eval true \
 --data_path /path/to/imagenet-1k \
@@ -30,7 +30,7 @@ python run_with_submitit.py --nodes 4 --ngpus 8 \
 You can use the following command to run this experiment on a single machine: 
 ```
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model convnext_tiny --drop_path 0.1 \
+--model selnext_tiny --drop_path 0.1 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
 --model_ema true --model_ema_eval true \
 --data_path /path/to/imagenet-1k 
@@ -49,7 +49,7 @@ ConvNeXt-S
 Multi-node
 ```
 python run_with_submitit.py --nodes 4 --ngpus 8 \
---model convnext_small --drop_path 0.4 \
+--model selnext_small --drop_path 0.4 \
 --batch_size 128 --lr 4e-3 --update_freq 1 \
 --model_ema true --model_ema_eval true \
 --data_path /path/to/imagenet-1k \
@@ -59,7 +59,7 @@ python run_with_submitit.py --nodes 4 --ngpus 8 \
 Single-machine
 ```
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model convnext_small --drop_path 0.4 \
+--model selnext_small --drop_path 0.4 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
 --model_ema true --model_ema_eval true \
 --data_path /path/to/imagenet-1k \
@@ -74,7 +74,7 @@ ConvNeXt-B
 Multi-node
 ```
 python run_with_submitit.py --nodes 4 --ngpus 8 \
---model convnext_base --drop_path 0.5 \
+--model selnext_base --drop_path 0.5 \
 --batch_size 128 --lr 4e-3 --update_freq 1 \
 --model_ema true --model_ema_eval true \
 --data_path /path/to/imagenet-1k \
@@ -84,7 +84,7 @@ python run_with_submitit.py --nodes 4 --ngpus 8 \
 Single-machine
 ```
 python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model convnext_base --drop_path 0.5 \
+--model selnext_base --drop_path 0.5 \
 --batch_size 128 --lr 4e-3 --update_freq 4 \
 --model_ema true --model_ema_eval true \
 --data_path /path/to/imagenet-1k \
@@ -92,32 +92,7 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 ``` 
 
 </details>
-<details>
-<summary>
-ConvNeXt-L
-</summary>
 
-Multi-node
-```
-python run_with_submitit.py --nodes 8 --ngpus 8 \
---model convnext_large --drop_path 0.5 \
---batch_size 64 --lr 4e-3 --update_freq 1 \
---model_ema true --model_ema_eval true \
---data_path /path/to/imagenet-1k \
---job_dir /path/to/save_results
-``` 
-
-Single-machine
-```
-python -m torch.distributed.launch --nproc_per_node=8 main.py \
---model convnext_large --drop_path 0.5 \
---batch_size 64 --lr 4e-3 --update_freq 8 \
---model_ema true --model_ema_eval true \
---data_path /path/to/imagenet-1k \
---output_dir /path/to/save_results
-``` 
-
-</details>
 
 ## CIFAR-100 / Oxford 102 flowers / Stanford cars / FGVC Aircraft dataset Fine-tuning
 ### Finetune from ImageNet-1K pre-training 
