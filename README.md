@@ -31,9 +31,7 @@ Single-GPU
 python main.py --model [model name] --eval true \
 --resume <PATH_TO_PRETRAINED_WEIGHTS> \
 --input_size 224 \
---data_path <PATH_IMAGENET-1K> \
---model_ema true \
---model_ema_eval true
+--data_path <PATH_IMAGENET-1K> 
 ```
 Multi-GPU
 ```
@@ -41,14 +39,14 @@ python -m torch.distributed.launch --nproc_per_node=8 main.py \
 --model [modelname] --eval true \
 --resume <PATH_TO_PRETRAINED_WEIGHTS> \
 --input_size 224 \
---data_path <PATH_IMAGENET-1K> \
---model_ema true \
---model_ema_eval true
+--data_path <PATH_IMAGENET-1K> 
+
 ```
 
 This should give 
 ```
-* Acc@1 85.820 Acc@5 97.868 loss 0.563
+python main.py --model selnext_base --eval true --resume ./selnext_base_1k_224_ema.pth --input_size 224 --data_path /imagenet
+* Acc@1 84.230 Acc@5 96.830 loss 0.670
 ```
 
 - For evaluating other model variants, change `--model`, `--resume` accordingly.
